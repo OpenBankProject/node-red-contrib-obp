@@ -60,7 +60,7 @@
             }
 
             const url = window.location.href
-                            .replace(/\/?\?.*$/g, ""); // get node red server url, except query parameters and the last slash character
+                            .replace(/\/?[#?].*$/g, ""); // get node red server url, except query parameters and the last slash character
             const messageDocsUrl = url + "/messageDocs";
 
             let message_docs = null;
