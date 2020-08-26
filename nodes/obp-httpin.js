@@ -176,17 +176,9 @@ module.exports = function(RED) {
         RED.nodes.createNode(this,n);
         if (RED.settings.httpNodeRoot !== false) {
 
-            if (!n.url) {
-                this.warn(RED._("httpin.errors.missing-path"));
-                return;
-            }
-            this.url = n.url;
-            if (this.url[0] !== '/') {
-                this.url = '/'+this.url;
-            }
-            this.method = n.method;
-            this.upload = n.upload;
-            this.swaggerDoc = n.swaggerDoc;
+            this.url = "/node-red-adapter/" + n.name;
+            this.method = 'post';
+            this.upload = false;
 
             var node = this;
 
@@ -199,11 +191,11 @@ module.exports = function(RED) {
                 var msgid = RED.util.generateId();
                 res._msgid = msgid;
                 if (node.method.match(/^(post|delete|put|options|patch)$/)) {
-                    node.send({_msgid:msgid,req:req,res:createResponseWrapper(node,res),payload:req.body});
+                    node.send({_msgid:msgid,req:req,res:createResponseWrapper(node,res),payload:req.body, connectorMethod: n.name});
                 } else if (node.method == "get") {
-                    node.send({_msgid:msgid,req:req,res:createResponseWrapper(node,res),payload:req.query});
+                    node.send({_msgid:msgid,req:req,res:createResponseWrapper(node,res),payload:req.query, connectorMethod: n.name});
                 } else {
-                    node.send({_msgid:msgid,req:req,res:createResponseWrapper(node,res)});
+                    node.send({_msgid:msgid,req:req,res:createResponseWrapper(node,res), connectorMethod: n.name});
                 }
             };
 
@@ -273,6 +265,6 @@ module.exports = function(RED) {
             this.warn(RED._("httpin.errors.not-created"));
         }
     }
-    RED.nodes.registerType("obp http in",HTTPIn);
 
+    RED.nodes.registerType("obp-http-in",HTTPIn);
 }
