@@ -38,7 +38,7 @@
         icon: "white-globe.svg",
         label: function() {
             if (this.name) {
-                return this.name;
+                return "obp.adapter." + this.name;
             } else {
                 return "http";
             }
