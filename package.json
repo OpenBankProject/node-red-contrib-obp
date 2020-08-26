@@ -1,6 +1,6 @@
 {
   "name": "node-red-contrib-obp",
-  "version": "0.1.0",
+  "version": "0.2.1",
   "description": "open bank project http connector methods adapter ",
   "main": "index.js",
   "scripts": {
@@ -8,6 +8,7 @@
     "start": "node index.js"
   },
   "keywords": [
+    "node-red",
     "open",
     "bank",
     "project"
@@ -22,11 +23,10 @@
   "devDependencies": {
     "mocha": "^7.2.0",
     "node-red": "^1.0.6",
-    "node-red-node-test-helper": "^0.2.4",
-    "@node-red/nodes": "^1.0.6"
+    "node-red-node-test-helper": "^0.2.4"
   },
   "dependencies": {
-    "user": "0.0.0"
+    "@node-red/nodes": "^1.0.6"
   },
   "repository": {
     "type": "git",
