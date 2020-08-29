@@ -266,5 +266,5 @@ module.exports = function(RED) {
         }
     }
 
-    RED.nodes.registerType("obp-http-in",HTTPIn);
+    RED.nodes.registerType("obp:-adapter-start",HTTPIn);
 }
