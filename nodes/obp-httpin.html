@@ -14,7 +14,7 @@
   limitations under the License.
 -->
 
-<script type="text/x-red" data-template-name="obp:-adapter-start">
+<script type="text/x-red" data-template-name="obp:-adapter-entry-point">
     <div class="form-row">
         <label for="node-input-name"><i class="fa fa-tag"></i> <span>Name</span></label>
         <select type="text" id="node-input-name" style="width:70%;">
@@ -27,7 +27,7 @@
 
 <script type="text/javascript">
 (function() {
-    RED.nodes.registerType('obp:-adapter-start',{
+    RED.nodes.registerType('obp:-adapter-entry-point',{
         category: 'Open Bank Project',
         color:"rgb(231, 231, 174)",
         defaults: {
@@ -40,7 +40,7 @@
             if (this.name) {
                 return "obp.adapter." + this.name;
             } else {
-                return "obp: adapter ???";
+                return "obp.adapter.???";
             }
         },
         labelStyle: function() {
@@ -119,7 +119,7 @@
 
 })();
 </script>
-<script type="text/html" data-help-name="obp:-adapter-start">
+<script type="text/html" data-help-name="obp:-adapter-entry-point">
     <p>Create one connector rest adapter endpoint</p>
 
     <p>

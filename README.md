@@ -1,6 +1,6 @@
 # Open Bank Project related nodes
 
-Currently, there is one node: obp:-adapter-start
+Currently, there is one node: obp:-adapter-entry-point
 It can select one connector method, to generate an endpoint for MethodRouting.
 
 ## Publish a new version to npm and Node-red
